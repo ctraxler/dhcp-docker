@@ -10,4 +10,4 @@ VOLUME ["/var/lib/dhcp", "/etc/dhcp"]
 
 ADD ./dhcpd.conf /etc/dhcp
 ADD ./rndc.key /etc/dhcp/ddns-keys/rndc.key
-CMD ["bash"]
+ENTRYPOINT ["/usr/sbin/dhcpd", "-d", "--no-pid"]
