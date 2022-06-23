@@ -1,1 +1,1 @@
-docker run -dit   --net=host --name=dhcp --restart=always ctraxler/dhcp-docker 
+docker run -dit   --net=gl-ens1-macvlan --name=dhcp --hostname=dhcp --ip=192.168.0.191 --restart=always ctraxler/dhcp-docker:latest
