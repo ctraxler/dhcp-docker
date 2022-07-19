@@ -8,6 +8,4 @@ RUN touch /var/lib/dhcp/dhcpd.leases
 VOLUME ["/var/lib/dhcp", "/etc/dhcp"]
 
 
-ADD ./dhcpd.conf /etc/dhcp
-ADD ./rndc.key /etc/dhcp/ddns-keys/rndc.key
 ENTRYPOINT ["/usr/sbin/dhcpd", "-d", "--no-pid"]

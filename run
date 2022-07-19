@@ -1,1 +1,12 @@
-docker run -dit   --net=gl-ens1-macvlan --name=dhcp --hostname=dhcp --ip=192.168.0.191 --restart=always ctraxler/dhcp-docker:latest
+# zeus
+
+docker run -d  \
+    --mount type=bind,source=/dockerdata/var/lib/dhcp,target=/var/lib/dhcp \
+    --mount type=bind,source=/dockerdata/etc/dhcp,target=/etc/dhcp \
+    --net=gl-ens1-macvlan --name=dhcp --hostname=dhcp --ip=192.168.0.191 --restart=always ctraxler/dhcp-docker:latest
+
+# raspi
+docker run -d  \
+    --mount type=bind,source=/data/dockervols/dhcp/var/lib/dhcp,target=/var/lib/dhcp \
+    --mount type=bind,source=/data/dockervols/dhcp/etc/dhcp,target=/etc/dhcp \
+    --net=gl-ens1-macvlan --name=dhcp --hostname=dhcp --ip=192.168.0.241 --restart=always ctraxler/dhcp-docker:latest
